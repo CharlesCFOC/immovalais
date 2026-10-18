@@ -1,7 +1,8 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { useState } from "react";
+import { useState, type KeyboardEvent } from "react";
+import { House, UsersRound } from "lucide-react";
 import type { Locale } from "@/lib/i18n";
 import { DashboardValuationRequests } from "@/components/DashboardValuationRequests";
 import { RealEstateAdminAccess } from "@/components/RealEstateAdminAccess";
@@ -12,8 +13,16 @@ const PropertyManager = dynamic(() => import("@/components/RealEstatePropertyMan
 
 export function RealEstateAdminPortal({ locale }: { locale: Locale }) {
   const [authorized, setAuthorized] = useState(false);
-  const [showProperties, setShowProperties] = useState(true);
+  const [activeTab, setActiveTab] = useState<"annonces" | "prospects">("annonces");
   const [loggingOut, setLoggingOut] = useState(false);
+
+  function handleTabKeyDown(event: KeyboardEvent<HTMLButtonElement>) {
+    if (!["ArrowRight", "ArrowLeft", "Home", "End"].includes(event.key)) return;
+    event.preventDefault();
+    const nextTab = event.key === "Home" ? "annonces" : event.key === "End" ? "prospects" : activeTab === "annonces" ? "prospects" : "annonces";
+    setActiveTab(nextTab);
+    requestAnimationFrame(() => document.getElementById(`admin-tab-${nextTab}`)?.focus());
+  }
 
   async function logout() {
     setLoggingOut(true);
@@ -40,28 +49,28 @@ export function RealEstateAdminPortal({ locale }: { locale: Locale }) {
         <>
           <header className="immovalaisAdminHeader">
             <div>
-              <p className="reEyebrow">IMMOVALAIS · ADMIN</p>
+              <p className="reEyebrow">IMMOVALAIS · ADMINISTRATION</p>
               <h1>Espace administrateur</h1>
-              <p>Gestion des biens immobiliers et demandes reçues via le formulaire.</p>
+              <p>Gérez les annonces et retrouvez les demandes de vos prospects au même endroit.</p>
             </div>
             <button type="button" onClick={logout} disabled={loggingOut}>
               {loggingOut ? "Déconnexion…" : "Déconnexion"}
             </button>
           </header>
-          <div className="immovalaisAdminSections">
-            <section aria-label="Gestion des biens immobiliers">
-              {showProperties ? (
-                <PropertyManager locale={locale} onClose={() => setShowProperties(false)} />
-              ) : (
-                <button type="button" className="reAdminButton" onClick={() => setShowProperties(true)}>
-                  Gérer les biens
-                </button>
-              )}
-            </section>
-            <section className="immovalaisAdminRequests" aria-label="Réponses aux formulaires">
-              <DashboardValuationRequests />
-            </section>
+          <div className="immovalaisAdminTabs" role="tablist" aria-label="Sections d’administration">
+            <button id="admin-tab-annonces" type="button" role="tab" aria-selected={activeTab === "annonces"} aria-controls="admin-panel-annonces" tabIndex={activeTab === "annonces" ? 0 : -1} onClick={() => setActiveTab("annonces")} onKeyDown={handleTabKeyDown}>
+              <House size={17} aria-hidden="true" /> Annonces
+            </button>
+            <button id="admin-tab-prospects" type="button" role="tab" aria-selected={activeTab === "prospects"} aria-controls="admin-panel-prospects" tabIndex={activeTab === "prospects" ? 0 : -1} onClick={() => setActiveTab("prospects")} onKeyDown={handleTabKeyDown}>
+              <UsersRound size={17} aria-hidden="true" /> Prospect
+            </button>
           </div>
+          <section id="admin-panel-annonces" className="immovalaisAdminPanel" role="tabpanel" aria-labelledby="admin-tab-annonces" hidden={activeTab !== "annonces"}>
+            <PropertyManager locale={locale} />
+          </section>
+          <section id="admin-panel-prospects" className="immovalaisAdminPanel immovalaisAdminRequests" role="tabpanel" aria-labelledby="admin-tab-prospects" hidden={activeTab !== "prospects"}>
+            <DashboardValuationRequests />
+          </section>
         </>
       )}
     </main>

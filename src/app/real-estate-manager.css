@@ -119,11 +119,11 @@
   margin: 8px 0 28px;
 }
 .reManager {
-  background: #f7faff;
-  border: 1px solid #dce6f2;
-  border-radius: 18px;
-  padding: 24px;
-  margin-top: 14px;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  padding: 0;
+  margin-top: 0;
   color: #18314d;
 }
 .reManagerHeader {
@@ -173,9 +173,10 @@
   justify-content: space-between;
   gap: 18px;
   background: white;
-  border: 1px solid #e0e8f2;
-  border-radius: 12px;
+  border: 0;
+  border-radius: 16px;
   padding: 18px;
+  box-shadow: 0 8px 28px #1c34500b;
 }
 .reManagerRow h3 {
   font-size: 16px;
@@ -493,16 +494,17 @@ body:has(.reEditorDialog[open], .reAdminDialog[open]) {
 }
 .immovalaisAdminPage {
   min-height: 60vh;
-  padding: clamp(28px, 5vw, 72px) max(24px, calc((100vw - 1320px) / 2));
-  background: #f5f6f8;
+  padding: clamp(36px, 5vw, 68px) max(24px, calc((100vw - 1320px) / 2)) 88px;
+  background: #f4f6f8;
 }
 .immovalaisAdminGate {
   width: min(100%, 600px);
   margin: 5vh auto;
   padding: clamp(24px, 4vw, 48px);
   background: #fff;
-  border: 1px solid #d7e0ed;
+  border: 0;
   border-radius: 16px;
+  box-shadow: 0 14px 42px #19314b0c;
 }
 .immovalaisAdminGate h1,
 .immovalaisAdminHeader h1 {
@@ -519,7 +521,7 @@ body:has(.reEditorDialog[open], .reAdminDialog[open]) {
   justify-content: space-between;
   align-items: flex-start;
   gap: 24px;
-  margin: 0 auto 32px;
+  margin: 0 auto 28px;
   max-width: 1320px;
 }
 .immovalaisAdminHeader button {
@@ -543,6 +545,420 @@ body:has(.reEditorDialog[open], .reAdminDialog[open]) {
 .immovalaisAdminRequests {
   min-width: 0;
 }
+.immovalaisAdminTabs {
+  display: flex;
+  gap: 8px;
+  max-width: 1320px;
+  margin: 0 auto 26px;
+  padding: 5px;
+  background: #e9edf2;
+  border-radius: 14px;
+  width: fit-content;
+}
+.immovalaisAdminTabs button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  min-width: 142px;
+  min-height: 44px;
+  padding: 10px 18px;
+  border: 0;
+  border-radius: 10px;
+  background: transparent;
+  color: #607087;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 650;
+  cursor: pointer;
+  transition: color 160ms ease, background 160ms ease, box-shadow 160ms ease;
+}
+.immovalaisAdminTabs button[aria-selected="true"] {
+  background: #fff;
+  color: #18314d;
+  box-shadow: 0 3px 10px #17314b12;
+}
+.immovalaisAdminTabs button:focus-visible {
+  outline: 3px solid #77aef0;
+  outline-offset: 2px;
+}
+.immovalaisAdminPanel {
+  max-width: 1320px;
+  margin: 0 auto;
+  min-width: 0;
+}
+.immovalaisAdminPanel[hidden] {
+  display: none;
+}
+.reManagerHeader {
+  align-items: center;
+  margin-bottom: 24px;
+}
+.reManagerHeader h2 {
+  font-size: clamp(22px, 2.4vw, 28px);
+  letter-spacing: -0.025em;
+}
+.reManagerHeader > button {
+  display: none;
+}
+.reCreate {
+  padding: 20px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 8px 28px #1c34500b;
+}
+.reManagerFilters {
+  align-items: end;
+  margin: 20px 0 14px;
+}
+.reManagerRows {
+  gap: 12px;
+}
+.valuationWorkspace {
+  display: grid;
+  gap: 22px;
+  color: #18314d;
+}
+.valuationHeading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 2px;
+}
+.valuationHeading h2 {
+  margin: 5px 0 7px;
+  color: #182d48;
+  font-size: clamp(24px, 3vw, 32px);
+  letter-spacing: -0.035em;
+}
+.valuationHeading p:not(.valuationEyebrow) {
+  margin: 0;
+  color: #68788c;
+  font-size: 14px;
+}
+.valuationEyebrow {
+  margin: 0;
+  color: #587391;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+.prospectHeaderActions,
+.prospectMonthActions,
+.prospectSaveRow,
+.prospectModeSwitch,
+.prospectDateScope,
+.prospectViewToolbar,
+.prospectSectionTitle,
+.prospectResultsHeading {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.prospectHeaderActions button,
+.prospectMonthActions button,
+.prospectModeSwitch button,
+.prospectDateScope button,
+.prospectOverdueAlert button,
+.valuationPagination button,
+.valuationEmpty button,
+.prospectSaveRow button,
+.prospectClearDay {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-height: 40px;
+  padding: 9px 13px;
+  border: 0;
+  border-radius: 10px;
+  background: #fff;
+  color: #294562;
+  box-shadow: 0 4px 16px #1c34500c;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 650;
+  cursor: pointer;
+}
+.prospectHeaderActions button:hover,
+.prospectMonthActions button:hover,
+.prospectModeSwitch button:hover,
+.prospectDateScope button:hover {
+  background: #eef4fa;
+}
+.prospectStats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+.prospectStats article,
+.prospectTrend,
+.prospectPipeline,
+.prospectCalendar,
+.valuationDetail,
+.valuationEmpty,
+.prospectNoSelection {
+  min-width: 0;
+  padding: 20px;
+  border: 0;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 8px 28px #1c34500b;
+}
+.prospectStats article {
+  display: grid;
+  gap: 7px;
+}
+.prospectStats article > span,
+.prospectStats article small {
+  color: #718096;
+  font-size: 12px;
+}
+.prospectStats article strong {
+  color: #18314d;
+  font-size: 30px;
+  line-height: 1;
+  letter-spacing: -.04em;
+}
+.prospectStats article.is-blue strong { color: #286bb4; }
+.prospectStats article.is-amber strong { color: #b56e19; }
+.prospectOverview {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(280px, .85fr);
+  gap: 14px;
+}
+.prospectSectionTitle,
+.prospectResultsHeading {
+  justify-content: space-between;
+}
+.prospectSectionTitle h3,
+.prospectPipeline h3,
+.prospectResultsHeading h3 {
+  margin: 0;
+  color: #203b58;
+  font-size: 16px;
+}
+.prospectSectionTitle > span,
+.prospectResultsHeading > span {
+  color: #718096;
+  font-size: 12px;
+}
+.prospectTrendBars {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 12px;
+  height: 145px;
+  margin-top: 16px;
+}
+.prospectTrendBars button {
+  display: grid;
+  grid-template-rows: 18px 1fr 18px;
+  justify-items: center;
+  gap: 5px;
+  min-width: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #748398;
+  cursor: pointer;
+}
+.prospectTrendBars button strong { color: #344e6a; font-size: 12px; }
+.prospectTrendBars button small { font-size: 11px; text-transform: capitalize; }
+.prospectBarTrack {
+  display: flex;
+  align-items: end;
+  width: 100%;
+  max-width: 38px;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #eff3f7;
+}
+.prospectBarTrack > span {
+  width: 100%;
+  min-height: 0;
+  border-radius: 8px;
+  background: #79a9dc;
+}
+.prospectTrendBars button[data-current="true"] .prospectBarTrack > span { background: #2769ad; }
+.prospectPipeline > p { margin: 5px 0 15px; color: #7a8798; font-size: 12px; }
+.prospectPipeline > div { display: grid; gap: 5px; }
+.prospectPipeline > div > button {
+  display: grid;
+  grid-template-columns: 10px 1fr auto;
+  align-items: center;
+  gap: 9px;
+  padding: 8px 9px;
+  border: 0;
+  border-radius: 9px;
+  background: transparent;
+  color: #54677e;
+  text-align: left;
+  font: inherit;
+  font-size: 12px;
+  cursor: pointer;
+}
+.prospectPipeline > div > button:hover,
+.prospectPipeline > div > button[aria-pressed="true"] { background: #f2f6fa; }
+.prospectPipeline > div > button strong { color: #203b58; }
+.prospectStatusDot { width: 8px; height: 8px; border-radius: 50%; background: #8a9caf; }
+.prospectPipeline button[data-status="new"] .prospectStatusDot { background: #4284cb; }
+.prospectPipeline button[data-status="contacted"] .prospectStatusDot { background: #7f6bb0; }
+.prospectPipeline button[data-status="qualified"] .prospectStatusDot { background: #26866b; }
+.prospectPipeline button[data-status="sold"] .prospectStatusDot { background: #239365; }
+.prospectPipeline button[data-status="lost"] .prospectStatusDot { background: #b77a72; }
+.prospectOverdueAlert {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 17px;
+  border: 0;
+  border-radius: 14px;
+  background: #fff5e9;
+  color: #76501e;
+  font-size: 13px;
+}
+.valuationFilters {
+  display: grid;
+  grid-template-columns: minmax(220px, 1.5fr) repeat(2, minmax(160px, .8fr));
+  gap: 10px;
+}
+.valuationFilters label { display: flex; align-items: center; gap: 8px; }
+.valuationFilters input,
+.valuationFilters select,
+.prospectFollowupForm input,
+.prospectFollowupForm select,
+.prospectFollowupForm textarea,
+.prospectListScope input,
+.prospectListScope select,
+.reCreate input,
+.reManagerFilters input,
+.reManagerFilters select {
+  min-width: 0;
+  width: 100%;
+  min-height: 42px;
+  padding: 9px 12px;
+  border: 1px solid #dce4ec;
+  border-radius: 10px;
+  background: #fff;
+  color: #203b58;
+  font: inherit;
+  font-size: 13px;
+}
+.valuationSearch { position: relative; }
+.valuationSearch > svg { position: absolute; left: 13px; color: #8492a4; }
+.valuationSearch input { padding-left: 40px; }
+.prospectViewToolbar { justify-content: space-between; flex-wrap: wrap; }
+.prospectModeSwitch { gap: 3px; padding: 4px; border-radius: 12px; background: #e9edf2; }
+.prospectModeSwitch button { min-height: 34px; padding: 7px 11px; background: transparent; box-shadow: none; font-size: 12px; }
+.prospectModeSwitch button[aria-pressed="true"] { background: #fff; color: #18314d; box-shadow: 0 3px 10px #17314b12; }
+.prospectDateScope { color: #718096; font-size: 12px; }
+.prospectDateScope label { display: flex; align-items: center; gap: 7px; }
+.prospectDateScope input { accent-color: #2769ad; }
+.prospectDateScope button { background: transparent; box-shadow: none; color: #587391; font-size: 12px; }
+.prospectCalendar { padding: 22px; }
+.prospectCalendarHeader { display: flex; justify-content: space-between; align-items: center; gap: 18px; }
+.prospectCalendarHeader h3 { display: flex; align-items: center; gap: 9px; margin: 7px 0 0; color: #203b58; font-size: 19px; text-transform: capitalize; }
+.prospectMonthActions button { min-height: 36px; padding: 8px 11px; }
+.prospectCalendarControls { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin: 19px 0 13px; }
+.prospectCalendarGrid { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 7px; }
+.prospectWeekday { padding: 7px 4px; color: #8290a1; text-align: center; font-size: 11px; font-weight: 700; }
+.prospectCalendarDay,
+.prospectCalendarBlank {
+  position: relative;
+  min-height: 76px;
+  padding: 8px;
+  border: 0;
+  border-radius: 11px;
+  background: #f4f7fa;
+  color: #324e6b;
+  text-align: left;
+  font: inherit;
+  cursor: pointer;
+}
+.prospectCalendarBlank { background: transparent; cursor: default; }
+.prospectCalendarDay:hover,
+.prospectCalendarDay[aria-pressed="true"] { background: #e6f1fd; box-shadow: inset 0 0 0 1px #c6def7; }
+.prospectCalendarDay[data-today="true"] .prospectDayNumber { color: #2369b3; font-weight: 800; }
+.prospectDayNumber { font-size: 12px; }
+.prospectDayCount { display: flex; align-items: center; gap: 5px; margin-top: 12px; color: #2769ad; font-size: 10px; }
+.prospectDayCount strong { font-size: 12px; }
+.prospectDayCount.is-followup { color: #b56e19; }
+.prospectFollowupDot { position: absolute; right: 9px; top: 10px; width: 6px; height: 6px; border-radius: 50%; background: #d79335; }
+.prospectCalendarHint { margin: 14px 0 0; color: #8290a1; font-size: 11px; }
+.prospectClearDay { min-height: 34px; padding: 7px 10px; font-size: 11px; }
+.prospectListScope { display: flex; gap: 8px; }
+.prospectListScope select { max-width: 220px; }
+.valuationColumns { display: grid; grid-template-columns: minmax(280px, .8fr) minmax(0, 1.2fr); align-items: start; gap: 14px; }
+.prospectResultsHeading { margin: 4px 0 12px; }
+.prospectResultsHeading h3 { font-size: 15px; text-transform: capitalize; }
+.valuationList { display: grid; gap: 8px; padding: 0; margin: 0; list-style: none; }
+.valuationList li > button {
+  display: grid;
+  width: 100%;
+  gap: 7px;
+  padding: 14px;
+  border: 0;
+  border-radius: 13px;
+  background: #fff;
+  color: #50647c;
+  box-shadow: 0 6px 20px #1c34500b;
+  text-align: left;
+  font: inherit;
+  font-size: 12px;
+  cursor: pointer;
+}
+.valuationList li > button[aria-pressed="true"] { background: #f0f6fc; box-shadow: inset 0 0 0 1px #d9e8f6; }
+.valuationListTop,
+.valuationListBottom { display: flex; justify-content: space-between; gap: 10px; }
+.valuationListTop strong { color: #203b58; font-size: 14px; }
+.valuationListTop > span,
+.valuationAddress,
+.valuationListBottom { color: #718096; font-size: 11px; }
+.prospectStatusBadge { width: fit-content; padding: 4px 8px; border-radius: 999px; background: #edf3fa; color: #536b86; font-size: 10px; font-weight: 700; }
+.prospectStatusBadge[data-status="new"] { background: #e9f3ff; color: #286bb4; }
+.prospectStatusBadge[data-status="qualified"] { background: #e7f6ef; color: #247453; }
+.prospectCardFollowup { color: #9b661c; font-size: 11px; }
+.prospectCardFollowup[data-overdue="true"] { color: #b33d35; font-weight: 700; }
+.valuationDetail { padding: 22px; }
+.valuationDetail h3 { margin: 6px 0; color: #203b58; font-size: 22px; }
+.valuationDate { color: #8390a0; font-size: 11px; }
+.valuationContact { display: flex; flex-wrap: wrap; gap: 8px; margin: 15px 0; }
+.valuationContact a { display: inline-flex; align-items: center; gap: 7px; padding: 8px 10px; border-radius: 9px; background: #f1f5f8; color: #315879; font-size: 12px; text-decoration: none; }
+.prospectFollowupForm { display: grid; gap: 12px; padding: 16px; border-radius: 13px; background: #f5f7f9; }
+.prospectFollowupForm h4,
+.prospectAnswersHeading { display: flex; align-items: center; gap: 8px; margin: 0; color: #294562; font-size: 14px; }
+.prospectFollowupForm label { display: grid; gap: 6px; color: #607087; font-size: 11px; font-weight: 650; }
+.prospectFollowupForm textarea { resize: vertical; }
+.prospectSaveRow { justify-content: space-between; flex-wrap: wrap; color: #8290a1; font-size: 11px; }
+.prospectSaveRow button { background: #2369ad; color: #fff; }
+.prospectSaveRow button:disabled { opacity: .55; cursor: not-allowed; }
+.prospectSuccess { color: #237251; font-size: 12px; }
+.prospectAnswersHeading { margin: 20px 0 10px; }
+.valuationDetail dl { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin: 0; }
+.valuationDetail dl > div { padding: 10px 11px; border: 0; border-radius: 10px; background: #f4f6f8; }
+.valuationDetail dt { color: #8190a1; font-size: 10px; }
+.valuationDetail dd { margin: 4px 0 0; color: #344e6a; font-size: 12px; overflow-wrap: anywhere; }
+.valuationEmpty,
+.prospectNoSelection { text-align: center; color: #718096; }
+.valuationEmpty svg { color: #8da2b8; }
+.valuationEmpty h3,
+.prospectNoSelection h3 { color: #294562; font-size: 15px; }
+.valuationEmpty p,
+.prospectNoSelection p { font-size: 12px; line-height: 1.6; }
+.valuationPagination { display: flex; justify-content: space-between; align-items: center; gap: 8px; margin-top: 12px; color: #718096; font-size: 12px; }
+.prospectHelp { padding: 16px 18px; border-radius: 13px; background: #eaf0f5; color: #5b6d80; font-size: 12px; }
+.prospectHelp summary { color: #294562; font-weight: 700; cursor: pointer; }
+.prospectHelp li { margin: 7px 0; }
+.valuationError { padding: 12px 14px; border: 0; border-radius: 10px; background: #fff0ef; color: #a6342d; font-size: 13px; }
+@media (max-width: 900px) {
+  .prospectStats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .prospectOverview { grid-template-columns: minmax(0, 1fr); }
+}
 @media (max-width: 640px) {
   .immovalaisAdminPage {
     padding-inline: 16px;
@@ -550,4 +966,36 @@ body:has(.reEditorDialog[open], .reAdminDialog[open]) {
   .immovalaisAdminHeader {
     flex-direction: column;
   }
+  .immovalaisAdminTabs {
+    width: 100%;
+  }
+  .immovalaisAdminTabs button {
+    flex: 1;
+    min-width: 0;
+  }
+  .reCreate,
+  .reManagerFilters,
+  .reManagerRow,
+  .valuationHeading,
+  .prospectCalendarHeader,
+  .prospectCalendarControls,
+  .prospectViewToolbar {
+    align-items: stretch;
+    flex-direction: column;
+  }
+  .prospectHeaderActions,
+  .prospectDateScope {
+    flex-wrap: wrap;
+  }
+  .valuationFilters,
+  .valuationColumns {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .prospectCalendarDay,
+  .prospectCalendarBlank {
+    min-height: 58px;
+    padding: 6px;
+  }
+  .prospectDayCount span { display: none; }
+  .valuationDetail dl { grid-template-columns: minmax(0, 1fr); }
 }

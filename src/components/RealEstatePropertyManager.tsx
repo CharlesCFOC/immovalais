@@ -10,7 +10,7 @@ export default function RealEstatePropertyManager({
   onClose,
 }: {
   locale: Locale;
-  onClose: () => void;
+  onClose?: () => void;
 }) {
   const [properties, setProperties] = useState<PropertyRow[]>([]),
     [loading, setLoading] = useState(true),
@@ -94,9 +94,11 @@ export default function RealEstatePropertyManager({
           <h2>Vos biens immobiliers</h2>
           <p>Préparez vos fiches en brouillon, puis publiez-les sur le site.</p>
         </div>
-        <button type="button" onClick={onClose}>
-          Fermer la gestion
-        </button>
+        {onClose ? (
+          <button type="button" onClick={onClose}>
+            Fermer la gestion
+          </button>
+        ) : null}
       </div>
       <form className="reCreate" onSubmit={create}>
         <label>
