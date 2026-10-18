@@ -1,4 +1,4 @@
-create table public.real_estate_properties (
+create table if not exists public.real_estate_properties (
  id uuid primary key default gen_random_uuid(),
  slug text not null unique check (slug ~ '^[a-z0-9][a-z0-9-]{0,119}$'),
  draft jsonb not null,
@@ -9,7 +9,7 @@ create table public.real_estate_properties (
  created_at timestamptz not null default now(),
  updated_at timestamptz not null default now()
 );
-create table public.real_estate_assets (
+create table if not exists public.real_estate_assets (
  id uuid primary key default gen_random_uuid(),
  property_id uuid not null references public.real_estate_properties(id) on delete cascade,
  kind text not null check(kind in ('image','document')),
@@ -20,8 +20,8 @@ create table public.real_estate_assets (
  ready boolean not null default false,
  created_at timestamptz not null default now()
 );
-create index real_estate_assets_property_idx on public.real_estate_assets(property_id);
-create table public.real_estate_versions (
+create index if not exists real_estate_assets_property_idx on public.real_estate_assets(property_id);
+create table if not exists public.real_estate_versions (
  id uuid primary key default gen_random_uuid(),
  property_id uuid not null references public.real_estate_properties(id) on delete cascade,
  revision bigint not null,
@@ -36,7 +36,7 @@ alter table public.real_estate_versions enable row level security;
 revoke all on public.real_estate_properties, public.real_estate_assets, public.real_estate_versions from anon, authenticated;
 grant all on public.real_estate_properties, public.real_estate_assets, public.real_estate_versions to service_role;
 
-create function public.manage_real_estate_property(p_id uuid, p_revision bigint, p_action text, p_content jsonb default null)
+create or replace function public.manage_real_estate_property(p_id uuid, p_revision bigint, p_action text, p_content jsonb default null)
 returns public.real_estate_properties
 language plpgsql security invoker set search_path = '' as $$
 declare r public.real_estate_properties;
