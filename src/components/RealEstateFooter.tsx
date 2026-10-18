@@ -8,6 +8,7 @@ export function RealEstateFooter({ locale }: { locale: Locale }) {
   const listingsHref = withLocalePath(locale, "/immobilier/biens");
   const valuationHref = withLocalePath(locale, "/immobilier/vendre");
   const studioHref = withLocalePath(locale, "/immobilier/commercialisation");
+  const adminHref = withLocalePath(locale, "/admin");
 
   return (
     <footer id="site-footer" className="realEstateFooter">
@@ -36,6 +37,7 @@ export function RealEstateFooter({ locale }: { locale: Locale }) {
           <p className="realEstateFooterLabel">Immovalais</p>
           <p>Suisse / Canada</p>
           <a href="https://brotherstudio.ch" target="_blank" rel="noreferrer">Site principal ↗</a>
+          <Link href={adminHref}>Admin</Link>
         </div>
       </div>
       <div className="realEstateFooterBottom">

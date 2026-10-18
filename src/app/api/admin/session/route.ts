@@ -4,7 +4,11 @@ import { NextResponse } from "next/server";
 import { createAdminSession, ADMIN_SESSION_COOKIE, hasAdminSession } from "@/lib/adminSession";
 const cookieOptions = { httpOnly: true, secure: process.env.NODE_ENV === "production", sameSite: "strict" as const, path: "/", maxAge: 86_400 };
 export async function GET() {
-  return NextResponse.json({ authorized: await hasAdminSession() }, { headers: { "Cache-Control": "no-store" } });
+  const configured = Boolean(process.env.ADMIN_ACCESS_CODE?.trim() && process.env.ADMIN_SESSION_SECRET?.trim());
+  return NextResponse.json(
+    { authorized: configured ? await hasAdminSession() : false, configured },
+    { headers: { "Cache-Control": "no-store" } },
+  );
 }
 export async function POST(request: Request) {
   if (request.headers.get("origin") !== new URL(request.url).origin) return NextResponse.json({ error: "Origine invalide." }, { status: 403 });

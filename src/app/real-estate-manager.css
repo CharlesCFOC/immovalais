@@ -491,3 +491,63 @@ body:has(.reEditorDialog[open], .reAdminDialog[open]) {
     border-left: 0;
   }
 }
+.immovalaisAdminPage {
+  min-height: 60vh;
+  padding: clamp(28px, 5vw, 72px) max(24px, calc((100vw - 1320px) / 2));
+  background: #f5f6f8;
+}
+.immovalaisAdminGate {
+  width: min(100%, 600px);
+  margin: 5vh auto;
+  padding: clamp(24px, 4vw, 48px);
+  background: #fff;
+  border: 1px solid #d7e0ed;
+  border-radius: 16px;
+}
+.immovalaisAdminGate h1,
+.immovalaisAdminHeader h1 {
+  margin: 8px 0;
+  color: #182d48;
+  font-size: clamp(28px, 4vw, 42px);
+}
+.immovalaisAdminGate > p:not(.reEyebrow),
+.immovalaisAdminHeader > div > p:not(.reEyebrow) {
+  color: #526176;
+}
+.immovalaisAdminHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;
+  margin: 0 auto 32px;
+  max-width: 1320px;
+}
+.immovalaisAdminHeader button {
+  border: 1px solid #d7e0ed;
+  background: #fff;
+  color: #182d48;
+  border-radius: 10px;
+  padding: 10px 15px;
+  font: inherit;
+  cursor: pointer;
+}
+.immovalaisAdminHeader button:disabled {
+  opacity: .6;
+}
+.immovalaisAdminSections {
+  display: grid;
+  gap: 36px;
+  max-width: 1320px;
+  margin: auto;
+}
+.immovalaisAdminRequests {
+  min-width: 0;
+}
+@media (max-width: 640px) {
+  .immovalaisAdminPage {
+    padding-inline: 16px;
+  }
+  .immovalaisAdminHeader {
+    flex-direction: column;
+  }
+}

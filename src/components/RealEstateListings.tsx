@@ -15,7 +15,6 @@ import type {
   PropertyCategory as ListingCategory,
   PublicProperty,
 } from "@/lib/real-estate/types";
-import { RealEstateManageListings } from "@/components/RealEstateManageListings";
 type ListingFilter =
   | "Tous les biens"
   | "Appartements"
@@ -155,8 +154,6 @@ export function RealEstateListings({
                 <span aria-hidden="true">↗</span>
               </Link>
             </header>
-
-            <RealEstateManageListings locale={locale} />
 
             <div
               className="realEstateFilters"
