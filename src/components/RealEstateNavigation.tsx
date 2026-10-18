@@ -22,7 +22,7 @@ export function RealEstateNavigation({ locale, active = "home" }: RealEstateNavi
           Immovalais
         </Link>
         <nav className="realEstateLocalNav" aria-label="Navigation immobilier">
-          <Link className={active === "home" ? "is-active" : ""} href={homeHref}>Home</Link>
+          <Link className={active === "home" ? "is-active" : ""} href={homeHref}>Accueil</Link>
           <Link className={active === "listings" ? "is-active" : ""} href={listingsHref}>Nos biens immobiliers</Link>
           <Link className={active === "sell" ? "is-active" : ""} href={valuationHref}>{locale === "fr" ? "Vendre mon bien" : "Sell my property"}</Link>
           <a href="#site-footer">Contact</a>

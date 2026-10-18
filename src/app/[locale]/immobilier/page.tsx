@@ -60,7 +60,7 @@ export default async function RealEstatePage({ params }: RealEstatePageProps) {
           contactType: "customer service",
           email: "veronique.pavard@gmail.com",
           telephone: "+41775201044",
-          availableLanguage: ["French", "English"],
+          availableLanguage: "French",
         },
       },
       {

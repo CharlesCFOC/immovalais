@@ -1,4 +1,4 @@
-export const LOCALES = ["fr", "en"] as const;
+export const LOCALES = ["fr"] as const;
 export type Locale = (typeof LOCALES)[number];
 export const DEFAULT_LOCALE: Locale = "fr";
 export function isLocale(value: string): value is Locale {
@@ -9,5 +9,6 @@ export function withLocalePath(locale: Locale, pathname: string): string {
   return `/${locale}${base}`;
 }
 export function getLanguageAlternates(pathname: string) {
-  return { fr: withLocalePath("fr", pathname), en: withLocalePath("en", pathname), "x-default": withLocalePath(DEFAULT_LOCALE, pathname) };
+  const frenchPath = withLocalePath("fr", pathname);
+  return { fr: frenchPath, "x-default": frenchPath };
 }

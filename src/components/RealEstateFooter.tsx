@@ -22,7 +22,7 @@ export function RealEstateFooter({ locale }: { locale: Locale }) {
         <div>
           <p className="realEstateFooterLabel">Immobilier</p>
           <nav aria-label="Navigation immobilière">
-            <Link href={homeHref}>Home</Link>
+            <Link href={homeHref}>Accueil</Link>
             <Link href={listingsHref}>Nos biens immobiliers</Link>
             <Link href={valuationHref}>{locale === "fr" ? "Vendre mon bien" : "Sell my property"}</Link>
             <Link href={studioHref}>Commercialiser mon projet</Link>
