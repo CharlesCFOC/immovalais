@@ -1,21 +1,18 @@
-import { ArrowUpRight, Play } from "lucide-react";
-import { CalendlyEmbed } from "@/components/CalendlyEmbed";
+import { ArrowUpRight } from "lucide-react";
 import { LandingBackgroundTransition } from "@/components/LandingBackgroundTransition";
 import { LandingContactForm } from "@/components/LandingContactForm";
 import { RealEstateNavigation } from "@/components/RealEstateNavigation";
 import { LandingFaq } from "@/components/LandingFaq";
 import { RealEstateFooter } from "@/components/RealEstateFooter";
-import { CALENDLY_MEETING_URL } from "@/lib/calendly";
 
 import type { Locale } from "@/lib/i18n";
 
 type CampaignLandingPageProps = {
   locale: Locale;
-  heroVideoSrc?: string;
   analyticsEnabled?: boolean;
 };
 
-export function CampaignLandingPage({ locale, heroVideoSrc, analyticsEnabled = false }: CampaignLandingPageProps) {
+export function CampaignLandingPage({ locale, analyticsEnabled = false }: CampaignLandingPageProps) {
   const isFrench = locale === "fr";
   const steps = isFrench
     ? [
@@ -40,33 +37,6 @@ export function CampaignLandingPage({ locale, heroVideoSrc, analyticsEnabled = f
       <RealEstateNavigation locale={locale} active="sell" />
     <main id="valuation-funnel" className="campaignLanding campaignLandingValuation">
       <LandingBackgroundTransition />
-
-      <section className="campaignLandingValuationHero" aria-labelledby="landing-hero-title">
-        <div className="campaignLandingValuationCopy">
-          <p className="campaignLandingEyebrow campaignLandingEyebrowDark">Immovalais · Immobilier</p>
-          <h1 id="landing-hero-title" className={isFrench ? "campaignLandingHeroTitleTwoLines" : undefined}>
-            {isFrench ? <><span>Estimation gratuite</span>{" "}<span>en Suisse romande</span></> : "Free valuation in French-speaking Switzerland"}
-          </h1>
-          <p className="campaignLandingHeroSubtitle">{isFrench ? "Obtenez une pré-estimation gratuite de votre bien avant la visite. Présentez-nous votre projet en deux étapes simples." : "Get a free preliminary valuation before the visit. Tell us about your property in two simple steps."}</p>
-          <div className="campaignLandingHeroActions">
-            <a className="campaignLandingButton campaignLandingButtonDark" href="#contact">
-              {isFrench ? "Estimer mon bien gratuitement" : "Request my valuation"}
-              <ArrowUpRight size={17} aria-hidden="true" />
-            </a>
-          </div>
-        </div>
-        <div className="campaignLandingSquareVideo">
-          {heroVideoSrc ? (
-            <video poster="/videos/landing-estimation-poster.webp" width={1080} height={1080} controls playsInline preload="metadata" aria-label={isFrench ? "Présentation de notre accompagnement immobilier" : "Our property services"}>
-              <source src={heroVideoSrc} type="video/mp4" />
-            </video>
-          ) : (
-            <div className="campaignLandingVideoPending" role="img" aria-label={isFrench ? "Emplacement de la vidéo de présentation" : "Presentation video placeholder"}>
-              <Play size={36} strokeWidth={1.25} aria-hidden="true" />
-            </div>
-          )}
-        </div>
-      </section>
 
       <section id="contact" className="campaignLandingContact" aria-labelledby="landing-contact-title">
         <LandingContactForm locale={locale} analyticsEnabled={analyticsEnabled} />
@@ -99,15 +69,6 @@ export function CampaignLandingPage({ locale, heroVideoSrc, analyticsEnabled = f
         </div>
       </section>
 
-      <section id="booking" className="campaignLandingBooking" aria-labelledby="landing-booking-title">
-        <div className="campaignLandingBookingIntro">
-          <p className="campaignLandingEyebrow">{isFrench ? "Prise de rendez-vous" : "Book a meeting"}</p>
-          <h2 id="landing-booking-title">{isFrench ? "Réservez votre rendez-vous." : "Book your appointment."}</h2>
-          <p>{isFrench ? "Choisissez directement un créneau pour discuter de votre bien et de son estimation. Vous recevrez la confirmation et le lien de l’appel vidéo." : "Choose a time to discuss your property and its valuation. You will receive a confirmation and a video call link."}</p>
-          <a className="campaignLandingButton campaignLandingButtonLight" href={CALENDLY_MEETING_URL} target="_blank" rel="noopener noreferrer">{isFrench ? "Ouvrir l’agenda" : "Open the calendar"}<ArrowUpRight size={17} aria-hidden="true" /></a>
-        </div>
-        <CalendlyEmbed title={isFrench ? "Rendez-vous Immovalais" : "Immovalais appointment"} url={CALENDLY_MEETING_URL} />
-      </section>
       <LandingFaq locale={locale} />
     </main>
       <RealEstateFooter locale={locale} />

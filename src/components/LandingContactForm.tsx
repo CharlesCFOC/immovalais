@@ -99,7 +99,7 @@ export function LandingContactForm({ locale, analyticsEnabled = false }: { local
       setStatus({ state: "success", message: isFrench ? "Votre demande a bien été envoyée. Nous vous recontacterons pour votre estimation." : "Your request has been sent. We will contact you about your valuation." });
     } catch {
       record("landing_form_error");
-      setStatus({ state: "error", message: isFrench ? "Votre demande n’a pas pu être envoyée. Réessayez ou réservez un rendez-vous ci-dessous." : "Your request could not be sent. Please try again or book a meeting below." });
+      setStatus({ state: "error", message: isFrench ? "Votre demande n’a pas pu être envoyée. Veuillez réessayer." : "Your request could not be sent. Please try again." });
     }
   }
 
@@ -108,13 +108,12 @@ export function LandingContactForm({ locale, analyticsEnabled = false }: { local
       <div className={styles.header}>
         <h3>{isFrench ? "Merci pour votre demande !" : "Thank you for your request!"}</h3>
         <p>{isFrench
-          ? "Votre demande a bien été envoyée. Nous vous recontacterons rapidement pour votre estimation. Vous pouvez aussi réserver directement un appel vidéo via notre agenda en ligne."
-          : "Your request has been sent. We’ll get back to you shortly about your valuation. You can also book a video call directly through our online calendar."}</p>
+          ? "Votre demande a bien été envoyée. Nous vous recontacterons rapidement pour votre estimation."
+          : "Your request has been sent. We’ll get back to you shortly about your valuation."}</p>
         <p className={styles.contactHighlight}>{isFrench
           ? "Votre personne de contact sera Charles de Guigne, qui vous contactera au +14376773212."
           : "Your contact person will be Charles de Guigne, who will reach you at +14376773212."}</p>
       </div>
-      <a className="campaignLandingButton campaignLandingButtonDark" href="#booking">{isFrench ? "Réserver un appel vidéo" : "Book a video call"}<ArrowUpRight size={17} aria-hidden="true" /></a>
     </div>
   );
 
