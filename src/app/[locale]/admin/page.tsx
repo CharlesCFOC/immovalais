@@ -6,7 +6,7 @@ import { resolveLocaleParam } from "@/lib/localeParams";
 import type { Locale } from "@/lib/i18n";
 
 export const metadata: Metadata = {
-  title: "Administration | Immovalais",
+  title: "Administration",
   robots: { index: false, follow: false },
 };
 
