@@ -230,8 +230,8 @@ export default function RealEstatePropertyEditor({
       if (action === "publish") onPublished(d.property.published);
       if (action === "trash") {
         router.push(
-          window.location.pathname.split("/immobilier/")[0] +
-            "/immobilier/biens",
+          window.location.pathname.split("/bien/")[0] +
+            "/biens",
         );
         router.refresh();
         return;

@@ -15,7 +15,7 @@ export async function generateMetadata({
   params,
 }: RealEstateListingsPageProps): Promise<Metadata> {
   const locale = await resolveLocaleParam(params);
-  const pathname = "/immobilier/biens";
+  const pathname = "/biens";
   const title =
     locale === "fr"
       ? "Biens immobiliers à vendre en Suisse romande"
@@ -50,6 +50,7 @@ export async function generateMetadata({
       title,
       description,
       url: withLocalePath(locale, pathname),
+      locale: locale === "fr" ? "fr_CH" : "en_CH",
       type: "website",
       images: [
         { url: toAbsoluteUrl("/immobilier/monthey/vue-1.webp"), alt: title },

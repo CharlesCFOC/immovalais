@@ -64,7 +64,7 @@ export function RealEstateListings({
   const [rooms, setRooms] = useState("Toutes les pièces");
   const [sortOrder, setSortOrder] = useState("newest");
   const isFrench = locale === "fr";
-  const valuationHref = withLocalePath(locale, "/immobilier/vendre");
+  const valuationHref = withLocalePath(locale, "/vendre");
 
   const visibleListings = useMemo(() => {
     const category = filterToCategory(activeFilter);
@@ -317,7 +317,7 @@ export function RealEstateListings({
                         className="realEstateCardMedia"
                         href={withLocalePath(
                           locale,
-                          `/immobilier/${listing.id}`,
+                          `/bien/${listing.id}`,
                         )}
                       >
                         <Image
@@ -339,7 +339,7 @@ export function RealEstateListings({
                           <Link
                             href={withLocalePath(
                               locale,
-                              `/immobilier/${listing.id}`,
+                              `/bien/${listing.id}`,
                             )}
                           >
                             {listing.title}
@@ -354,7 +354,7 @@ export function RealEstateListings({
                             className="realEstateCardArrow"
                             href={withLocalePath(
                               locale,
-                              `/immobilier/${listing.id}`,
+                              `/bien/${listing.id}`,
                             )}
                             aria-label={`Découvrir ${listing.title}`}
                           >

@@ -45,7 +45,7 @@ export function RealEstateProjectProfile({
             className="realEstateProfileBreadcrumbs"
             aria-label={isFrench ? "Fil d’Ariane" : "Breadcrumbs"}
           >
-            <Link href={withLocalePath(locale, "/immobilier/biens")}>
+            <Link href={withLocalePath(locale, "/biens")}>
               <ChevronLeft aria-hidden="true" size={14} />{" "}
               {isFrench ? "Retour aux biens" : "Back to properties"}
             </Link>

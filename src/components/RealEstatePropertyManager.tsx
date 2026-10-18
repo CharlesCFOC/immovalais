@@ -45,7 +45,7 @@ export default function RealEstatePropertyManager({
     setError("");
     try {
       const d = await estateRequest("/api/real-estate/manage", { title });
-      router.push(`/${locale}/immobilier/${d.property.slug}?edit=1`);
+      router.push(`/${locale}/bien/${d.property.slug}?edit=1`);
     } catch (e) {
       setError((e as Error).message);
     } finally {
@@ -203,7 +203,7 @@ export default function RealEstatePropertyManager({
                     <>
                       <Link
                         className="rePrimary"
-                        href={`/${locale}/immobilier/${p.slug}?edit=1`}
+                        href={`/${locale}/bien/${p.slug}?edit=1`}
                       >
                         Modifier la fiche ↗
                       </Link>

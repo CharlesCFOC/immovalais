@@ -26,7 +26,7 @@ export function LandingNavigation({ locale }: { locale: Locale }) {
           {links.map(link => <a key={link.href} href={link.href}>{link.label}</a>)}
         </nav>
         <div className={styles.actions}>
-          <Link className={styles.listings} href={`/${locale}/immobilier/biens`}>
+          <Link className={styles.listings} href={`/${locale}/biens`}>
             {isFrench ? "Voir nos biens" : "View our properties"}
             <ArrowUpRight size={14} aria-hidden="true" />
           </Link>

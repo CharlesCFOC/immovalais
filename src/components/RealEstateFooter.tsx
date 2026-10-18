@@ -5,9 +5,9 @@ import { withLocalePath } from "@/lib/i18n";
 
 export function RealEstateFooter({ locale }: { locale: Locale }) {
   const homeHref = withLocalePath(locale, "/immobilier");
-  const listingsHref = withLocalePath(locale, "/immobilier/biens");
-  const valuationHref = withLocalePath(locale, "/immobilier/vendre");
-  const studioHref = withLocalePath(locale, "/immobilier/commercialisation");
+  const listingsHref = withLocalePath(locale, "/biens");
+  const valuationHref = withLocalePath(locale, "/vendre");
+  const studioHref = withLocalePath(locale, "/commercialisation");
   const adminHref = withLocalePath(locale, "/admin");
 
   return (

@@ -28,7 +28,7 @@ export async function generateMetadata({
   const description = visible
     ? property.published?.description.slice(0, 160)
     : "";
-  const pathname = `/immobilier/${projectId}`;
+  const pathname = `/bien/${projectId}`;
 
   return {
     title,
@@ -42,6 +42,7 @@ export async function generateMetadata({
       title,
       description,
       url: withLocalePath(locale, pathname),
+      locale: locale === "fr" ? "fr_CH" : "en_CH",
       type: "website",
       images: [
         {
@@ -86,14 +87,29 @@ export default async function RealEstateProjectPage({
   const startEditing = authorized && query.edit === "1";
   const initialContent =
     startEditing || !isPublic ? property.draft : property.published!;
+  const propertyUrl = toAbsoluteUrl(`/${resolvedLocale}/bien/${encodeURIComponent(property.slug)}`);
+  const structuredData = isPublic
+    ? {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: resolvedLocale === "fr" ? "Accueil" : "Home", item: toAbsoluteUrl(`/${resolvedLocale}/immobilier`) },
+          { "@type": "ListItem", position: 2, name: resolvedLocale === "fr" ? "Biens immobiliers" : "Properties", item: toAbsoluteUrl(`/${resolvedLocale}/biens`) },
+          { "@type": "ListItem", position: 3, name: initialContent.title, item: propertyUrl },
+        ],
+      }
+    : null;
   return (
-    <RealEstateProjectWorkspace
-      locale={resolvedLocale}
-      slug={property.slug}
-      propertyId={property.id}
-      initialContent={initialContent}
-      initialPublished={isPublic ? property.published : null}
-      startEditing={startEditing}
-    />
+    <>
+      {structuredData ? <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, "\\u003c") }} /> : null}
+      <RealEstateProjectWorkspace
+        locale={resolvedLocale}
+        slug={property.slug}
+        propertyId={property.id}
+        initialContent={initialContent}
+        initialPublished={isPublic ? property.published : null}
+        startEditing={startEditing}
+      />
+    </>
   );
 }

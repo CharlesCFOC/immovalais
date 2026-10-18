@@ -11,8 +11,8 @@ type RealEstateNavigationProps = {
 
 export function RealEstateNavigation({ locale, active = "home" }: RealEstateNavigationProps) {
   const homeHref = withLocalePath(locale, "/immobilier");
-  const listingsHref = withLocalePath(locale, "/immobilier/biens");
-  const valuationHref = withLocalePath(locale, "/immobilier/vendre");
+  const listingsHref = withLocalePath(locale, "/biens");
+  const valuationHref = withLocalePath(locale, "/vendre");
 
   return (
     <header className="realEstateLocalHeader">

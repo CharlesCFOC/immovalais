@@ -53,8 +53,15 @@ export default async function RealEstatePage({ params }: RealEstatePageProps) {
         url: pageUrl,
         image: toAbsoluteUrl("/immobilier/hero-lac-alpes.webp"),
         areaServed: { "@type": "Place", name: "Suisse romande" },
-        email: "info@brotherstudio.ca",
-        telephone: "+1 437 677 3212",
+        email: "veronique.pavard@gmail.com",
+        telephone: "+41775201044",
+        contactPoint: {
+          "@type": "ContactPoint",
+          contactType: "customer service",
+          email: "veronique.pavard@gmail.com",
+          telephone: "+41775201044",
+          availableLanguage: ["French", "English"],
+        },
       },
       {
         "@type": "WebSite",

@@ -10,7 +10,7 @@ import { LandingBackgroundTransition } from "@/components/LandingBackgroundTrans
 import { RealEstateFooter } from "@/components/RealEstateFooter";
 
 export function RealEstateCommercialHome({ locale }: { locale: Locale }) {
-  const listingsHref = withLocalePath(locale, "/immobilier/biens");
+  const listingsHref = withLocalePath(locale, "/biens");
 
   return (
     <>
@@ -24,7 +24,7 @@ export function RealEstateCommercialHome({ locale }: { locale: Locale }) {
           <span className="realEstateCommercialRule" aria-hidden="true" />
           <div className="realEstateHeroActions">
             <Link className="realEstateHeroActionPrimary" href={listingsHref}>Découvrir nos biens <span aria-hidden="true">↗</span></Link>
-            <Link className="realEstateHeroActionSecondary realEstateHeroActionNeon" href={withLocalePath(locale, "/immobilier/commercialisation")}>Commercialiser mon projet <span aria-hidden="true">↗</span></Link>
+            <Link className="realEstateHeroActionSecondary realEstateHeroActionNeon" href={withLocalePath(locale, "/commercialisation")}>Commercialiser mon projet <span aria-hidden="true">↗</span></Link>
           </div>
         </div>
         <div className="realEstateCommercialHeroImage">

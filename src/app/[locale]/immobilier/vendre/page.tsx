@@ -5,6 +5,7 @@ import type { Metadata } from "next";
 import { CampaignLandingPage } from "@/components/CampaignLandingPage";
 import { getLanguageAlternates, withLocalePath } from "@/lib/i18n";
 import { resolveLocaleParam } from "@/lib/localeParams";
+import { toAbsoluteUrl } from "@/lib/siteUrl";
 
 type LandingPageProps = {
   params: Promise<{ locale: string }>;
@@ -12,7 +13,7 @@ type LandingPageProps = {
 
 export async function generateMetadata({ params }: LandingPageProps): Promise<Metadata> {
   const locale = await resolveLocaleParam(params);
-  const pathname = "/immobilier/vendre";
+  const pathname = "/vendre";
   const title =
     locale === "fr"
       ? "Estimation gratuite de vos biens"
@@ -29,16 +30,16 @@ export async function generateMetadata({ params }: LandingPageProps): Promise<Me
       canonical: withLocalePath(locale, pathname),
       languages: getLanguageAlternates(pathname),
     },
-    robots: {
-      index: false,
-      follow: false,
-    },
+    robots: { index: true, follow: true },
     openGraph: {
       title,
       description,
       url: withLocalePath(locale, pathname),
-      locale: locale === "fr" ? "fr_CA" : "en_CA",
+      locale: locale === "fr" ? "fr_CH" : "en_CH",
+      type: "website",
+      images: [{ url: toAbsoluteUrl("/immobilier/hero-lac-alpes.webp"), alt: title }],
     },
+    twitter: { card: "summary_large_image", title, description, images: [toAbsoluteUrl("/immobilier/hero-lac-alpes.webp")] },
   };
 }
 

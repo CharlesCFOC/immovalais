@@ -35,7 +35,8 @@ export async function POST(request: Request) {
           .toLowerCase()
           .replace(/[^a-z0-9]+/g, "-")
           .replace(/^-|-$/g, "")
-          .slice(0, 100) || "bien";
+          .slice(0, 48)
+          .replace(/-+$/g, "") || "bien";
     const { data, error } = await getSupabaseAdminClient()
       .from("real_estate_properties")
       .insert({
