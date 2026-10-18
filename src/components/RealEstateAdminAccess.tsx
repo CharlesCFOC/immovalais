@@ -36,19 +36,13 @@ export function RealEstateAdminAccess({
   const dialog = useRef<HTMLDialogElement>(null),
     [code, setCode] = useState(""),
     [error, setError] = useState(""),
-    [configured, setConfigured] = useState<boolean | null>(null),
     [busy, setBusy] = useState(false);
   async function open() {
     setBusy(true);
     setError("");
     try {
       const data = await estateRequest("/api/admin/session");
-      setConfigured(data.configured !== false);
       if (data.authorized) onAuthorized();
-      else if (data.configured === false) {
-        setError("Configurez ADMIN_ACCESS_CODE et ADMIN_SESSION_SECRET dans Vercel, puis redéployez le site.");
-        dialog.current?.showModal();
-      }
       else dialog.current?.showModal();
     } catch (e) {
       setError(e instanceof Error ? e.message : "Accès impossible.");
@@ -90,20 +84,18 @@ export function RealEstateAdminAccess({
         <form onSubmit={unlock}>
           <h2 id="re-unlock-title">Gestion des biens</h2>
           <p>Saisissez votre code pour ouvrir le mode d’édition.</p>
-          {configured === false ? null : (
-            <label>
-              Code d’accès
-              <input
-                type="password"
-                inputMode="numeric"
-                autoComplete="current-password"
-                value={code}
-                onChange={(e) => setCode(e.target.value)}
-                required
-                autoFocus
-              />
-            </label>
-          )}
+          <label>
+            Code d’accès
+            <input
+              type="password"
+              inputMode="numeric"
+              autoComplete="current-password"
+              value={code}
+              onChange={(e) => setCode(e.target.value)}
+              required
+              autoFocus
+            />
+          </label>
           {error ? (
             <p role="alert" className="reError">
               {error}
@@ -113,11 +105,9 @@ export function RealEstateAdminAccess({
             <button type="button" onClick={() => dialog.current?.close()}>
               Annuler
             </button>
-            {configured === false ? null : (
-              <button className="rePrimary" disabled={busy} type="submit">
-                {busy ? "Vérification…" : "Déverrouiller"}
-              </button>
-            )}
+            <button className="rePrimary" disabled={busy} type="submit">
+              {busy ? "Vérification…" : "Déverrouiller"}
+            </button>
           </div>
         </form>
       </dialog>
