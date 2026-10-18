@@ -1,0 +1,493 @@
+.reAdminButton,
+.reManager button,
+.reManager a.rePrimary,
+.reEditor button,
+.rePreviewBar button,
+.reAdminDialog button {
+  border: 1px solid #d7e0ed;
+  background: #fff;
+  color: #182d48;
+  border-radius: 10px;
+  padding: 10px 15px;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  min-height: 42px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.reAdminButton {
+  color: #1c63b7;
+  background: #f2f7ff;
+  margin: 12px 0;
+}
+.rePrimary,
+.reEditor .rePrimary,
+.reManager .rePrimary,
+.reAdminDialog .rePrimary {
+  background: #1768c4 !important;
+  color: white !important;
+  border-color: #1768c4 !important;
+}
+.reDanger,
+.reEditor .reDanger,
+.reManager .reDanger {
+  color: #ab3030 !important;
+}
+.reManager button:disabled,
+.reEditor button:disabled,
+.reAdminDialog button:disabled {
+  opacity: 0.5;
+  cursor: wait;
+}
+.reActions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.reAdminDialog {
+  width: min(440px, calc(100% - 32px));
+  border: 1px solid #dbe4ed;
+  border-radius: 18px;
+  padding: 28px;
+  color: #182d48;
+  box-shadow: 0 20px 70px #14284438;
+}
+.reAdminDialog::backdrop,
+.reEditorDialog::backdrop {
+  background: #0c1d356b;
+  backdrop-filter: blur(4px);
+}
+.reAdminDialog h2 {
+  font-size: 24px;
+  margin: 0 0 10px;
+}
+.reAdminDialog p {
+  font-size: 14px;
+  line-height: 1.5;
+  margin-bottom: 18px;
+}
+.reAdminDialog label,
+.reEditor label,
+.reManager label {
+  display: grid;
+  gap: 7px;
+  font-size: 13px;
+  color: #334d69;
+  font-weight: 600;
+}
+.reAdminDialog input,
+.reEditor input,
+.reEditor select,
+.reEditor textarea,
+.reManager input,
+.reManager select {
+  width: 100%;
+  min-width: 0;
+  border: 1px solid #d7e0ed;
+  border-radius: 9px;
+  padding: 11px;
+  background: white;
+  color: #142b47;
+  font: inherit;
+  font-size: 14px;
+  line-height: 1.45;
+}
+.reAdminDialog .reActions {
+  margin-top: 22px;
+  justify-content: flex-end;
+}
+.reError {
+  color: #ad2828 !important;
+  background: #fff0ef;
+  padding: 12px;
+  border-radius: 8px;
+  line-height: 1.5;
+}
+.reSuccess {
+  color: #166149;
+  background: #e8f6ef;
+  padding: 12px;
+  border-radius: 8px;
+}
+.reManagementEntry {
+  margin: 8px 0 28px;
+}
+.reManager {
+  background: #f7faff;
+  border: 1px solid #dce6f2;
+  border-radius: 18px;
+  padding: 24px;
+  margin-top: 14px;
+  color: #18314d;
+}
+.reManagerHeader {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: flex-start;
+}
+.reManagerHeader h2 {
+  font-size: 25px;
+  margin: 5px 0;
+}
+.reManager p {
+  font-size: 13px;
+  line-height: 1.5;
+}
+.reEyebrow {
+  font-size: 10px !important;
+  letter-spacing: 0.16em;
+  color: #1768c4;
+  font-weight: 700;
+}
+.reCreate {
+  display: flex;
+  align-items: end;
+  gap: 12px;
+  margin: 24px 0;
+}
+.reCreate label {
+  flex: 1;
+}
+.reManagerFilters {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+.reManagerFilters label {
+  flex: 1;
+}
+.reManagerRows {
+  display: grid;
+  gap: 10px;
+}
+.reManagerRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  background: white;
+  border: 1px solid #e0e8f2;
+  border-radius: 12px;
+  padding: 18px;
+}
+.reManagerRow h3 {
+  font-size: 16px;
+  margin: 8px 0 5px;
+}
+.reBadge {
+  display: inline-flex;
+  background: #eaf2ff;
+  color: #2364ab;
+  padding: 4px 9px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+}
+.reEditorDialog {
+  position: fixed;
+  inset: 0 0 0 auto;
+  margin: 0;
+  height: 100dvh;
+  max-height: 100dvh;
+  max-width: none;
+  width: min(760px, 100%);
+  border: 0;
+  padding: 0;
+  background: #f8faff;
+  color: #18314d;
+  box-shadow: -15px 0 70px #152e4233;
+}
+.reEditor {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.reEditorHeader {
+  padding: 22px 28px;
+  background: white;
+  border-bottom: 1px solid #dfe7ef;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 15px;
+}
+.reEditorHeader h2 {
+  font-size: 23px;
+  margin: 5px 0;
+}
+.reEditorHeader p {
+  font-size: 12px;
+  margin: 5px 0;
+  line-height: 1.5;
+}
+.reEditorTabs {
+  display: flex;
+  gap: 3px;
+  padding: 10px 20px;
+  border-bottom: 1px solid #dfe7ef;
+  background: white;
+  overflow: auto;
+  flex-shrink: 0;
+}
+.reEditorTabs button {
+  border: 0;
+  white-space: nowrap;
+  background: transparent;
+}
+.reEditorTabs button[aria-selected="true"] {
+  background: #eaf2ff;
+  color: #1a63b6;
+}
+.reEditorBody {
+  flex: 1;
+  overflow: auto;
+  padding: 24px 28px;
+  overscroll-behavior: contain;
+}
+.reEditorBody h3 {
+  font-size: 19px;
+  margin: 0 0 16px;
+}
+.reEditorBody p {
+  font-size: 13px;
+  line-height: 1.6;
+}
+.reFormGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.reWide {
+  grid-column: 1/-1;
+}
+.reCheck {
+  display: flex !important;
+  align-items: center;
+  gap: 10px;
+  margin: 15px 0;
+}
+.reCheck input {
+  width: 18px;
+  height: 18px;
+}
+.reEditor textarea {
+  min-height: 95px;
+  resize: vertical;
+}
+.reEditor textarea[data-large="true"] {
+  min-height: 180px;
+}
+.reEditorBody section + section {
+  border-top: 1px solid #dce5ee;
+  padding-top: 24px;
+  margin-top: 26px;
+}
+.reEditorFooter {
+  background: white;
+  border-top: 1px solid #dfe7ef;
+  padding: 16px 28px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+}
+.reDirty {
+  font-size: 12px;
+  color: #a36511;
+  margin-right: auto;
+}
+.reUpload {
+  border: 1px dashed #7aabdf;
+  background: #eff6ff;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+.reUpload input {
+  border: 0;
+  padding: 8px 0;
+  background: transparent;
+}
+.reMediaRows {
+  display: grid;
+  gap: 14px;
+}
+.reMediaRow {
+  border: 1px solid #dce5ee;
+  border-radius: 12px;
+  background: white;
+  padding: 15px;
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  gap: 15px;
+}
+.reMediaRow img {
+  width: 130px;
+  height: 100px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+.reMediaRow .reActions {
+  grid-column: 1/-1;
+}
+.reMediaRow label + label {
+  margin-top: 8px;
+}
+.reMediaRow .reFileIcon {
+  background: #eff4fa;
+  color: #3d6493;
+  border-radius: 9px;
+  padding: 20px;
+  font-size: 22px;
+  text-align: center;
+}
+.reFactRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  gap: 8px;
+  align-items: end;
+  margin-bottom: 12px;
+}
+.reHistoryRow {
+  background: white;
+  border: 1px solid #dce5ee;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+}
+.reHistoryRow strong {
+  font-size: 14px;
+}
+.reHistoryRow p {
+  margin: 5px 0;
+}
+.rePreviewBar {
+  position: sticky;
+  top: 80px;
+  z-index: 40;
+  background: #eaf3ff;
+  border: 1px solid #b9d4f0;
+  border-radius: 12px;
+  padding: 13px 18px;
+  margin: 12px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  color: #16477d;
+  font-size: 13px;
+}
+.reInlineEdit {
+  border: 1px dashed #7da6d4;
+  border-radius: 5px;
+  color: #1d64b4;
+  background: #edf5ff;
+  font-size: 11px;
+  padding: 4px 8px;
+  cursor: pointer;
+  margin: 6px 0;
+  display: block;
+}
+.reAdminButton:focus-visible,
+.reEditor button:focus-visible,
+.reManager button:focus-visible,
+.reEditor input:focus-visible,
+.reEditor textarea:focus-visible,
+.reEditor select:focus-visible {
+  outline: 3px solid #83b7ee;
+  outline-offset: 2px;
+}
+@media (max-width: 680px) {
+  .reManager {
+    padding: 16px;
+  }
+  .reManagerHeader,
+  .reManagerRow,
+  .reCreate {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .reManagerHeader > button {
+    align-self: flex-start;
+  }
+  .reManagerFilters {
+    flex-direction: column;
+  }
+  .reCreate label {
+    width: 100%;
+  }
+  .reEditorHeader,
+  .reEditorBody,
+  .reEditorFooter {
+    padding: 16px;
+  }
+  .reEditorHeader h2 {
+    font-size: 19px;
+  }
+  .reFormGrid {
+    grid-template-columns: 1fr;
+  }
+  .reMediaRow {
+    grid-template-columns: 85px 1fr;
+  }
+  .reMediaRow img {
+    width: 85px;
+    height: 85px;
+  }
+  .reFactRow {
+    grid-template-columns: 1fr 1fr;
+  }
+  .reFactRow button {
+    grid-column: 1/-1;
+  }
+  .reEditorFooter button {
+    flex: 1;
+  }
+  .reDirty {
+    width: 100%;
+    margin: 0;
+  }
+  .rePreviewBar {
+    top: 65px;
+    align-items: stretch;
+    flex-direction: column;
+  }
+  .reHistoryRow {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+.rePhotoCaption {
+  font-size: 12px;
+  color: #65758a;
+  margin: 10px 0 15px;
+}
+
+body:has(.reEditorDialog[open], .reAdminDialog[open]) {
+  overflow: hidden;
+}
+
+.realEstateProfileFacts.reSurfaceFacts {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+@media (max-width: 760px) {
+  .realEstateProfileFacts.reSurfaceFacts {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .realEstateProfileFacts.reSurfaceFacts > div:nth-child(3) {
+    padding-left: 0;
+    border-left: 0;
+  }
+}
