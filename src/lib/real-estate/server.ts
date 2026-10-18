@@ -1,6 +1,9 @@
 import "server-only";
 import { cache } from "react";
-import { getSupabaseAdminClient } from "@/lib/supabase/server";
+import {
+  getSupabaseAdminClient,
+  isSupabaseConfigured,
+} from "@/lib/supabase/server";
 import {
   emptyProperty,
   normalizePropertyContent,
@@ -11,6 +14,7 @@ import {
 } from "./types";
 export const MEDIA_BUCKET = "real-estate-media";
 export async function publicProperties() {
+  if (!isSupabaseConfigured()) return [];
   const { data, error } = await getSupabaseAdminClient()
     .from("real_estate_properties")
     .select("slug,published")
@@ -26,6 +30,7 @@ export async function publicProperties() {
     );
 }
 export const propertyBySlug = cache(async (slug: string) => {
+  if (!isSupabaseConfigured()) return null;
   const { data, error } = await getSupabaseAdminClient()
     .from("real_estate_properties")
     .select("*")

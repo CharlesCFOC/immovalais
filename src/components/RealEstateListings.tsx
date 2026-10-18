@@ -374,8 +374,12 @@ export function RealEstateListings({
                 <h2>{isFrench ? "Aucun bien trouvé" : "No property found"}</h2>
                 <p>
                   {isFrench
-                    ? "Modifiez vos critères de recherche pour voir d’autres biens."
-                    : "Adjust your search criteria to see more properties."}
+                    ? listings.length === 0
+                      ? "Notre sélection de biens sera bientôt disponible."
+                      : "Modifiez vos critères de recherche pour voir d’autres biens."
+                    : listings.length === 0
+                      ? "Our property selection will be available soon."
+                      : "Adjust your search criteria to see more properties."}
                 </p>
               </div>
             )}
