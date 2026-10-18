@@ -3,10 +3,10 @@ import "./globals.css";
 import { getSiteUrl } from "@/lib/siteUrl";
 export const metadata: Metadata = {
   metadataBase: getSiteUrl(),
-  title: { default: "Brother Studio Immobilier | Suisse romande", template: "%s | Brother Studio Immobilier" },
+  title: { default: "Immovalais | Suisse romande", template: "%s | Immovalais" },
   description: "Biens immobiliers sélectionnés en Suisse romande et accompagnement de la vente, de l’estimation à la signature.",
-  applicationName: "Brother Studio Immobilier",
-  openGraph: { type: "website", siteName: "Brother Studio Immobilier", locale: "fr_CH" },
+  applicationName: "Immovalais",
+  openGraph: { type: "website", siteName: "Immovalais", locale: "fr_CH" },
   robots: { index: true, follow: true },
 };
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

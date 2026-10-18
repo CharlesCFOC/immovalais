@@ -12,8 +12,8 @@ export function RealEstateFooter({ locale }: { locale: Locale }) {
   return (
     <footer id="site-footer" className="realEstateFooter">
       <div className="realEstateFooterTop">
-        <Link className="realEstateFooterLogo" href={homeHref} aria-label="Brother Studio Immobilier">
-          brother studio immobilier.
+        <Link className="realEstateFooterLogo" href={homeHref} aria-label="Immovalais">
+          Immovalais
         </Link>
         <p>Des lieux à vivre. Des projets à vendre.</p>
       </div>
@@ -29,17 +29,17 @@ export function RealEstateFooter({ locale }: { locale: Locale }) {
         </div>
         <div>
           <p className="realEstateFooterLabel">Contact</p>
-          <a href="mailto:info@brotherstudio.ca">info@brotherstudio.ca</a>
+          <a href="mailto:info@brotherstudio.ca">{locale === "fr" ? "Nous écrire" : "Email us"}</a>
           <a href="tel:+14376773212">+1 437 677 3212</a>
         </div>
         <div>
-          <p className="realEstateFooterLabel">Brother Studio</p>
+          <p className="realEstateFooterLabel">Immovalais</p>
           <p>Suisse / Canada</p>
           <a href="https://brotherstudio.ch" target="_blank" rel="noreferrer">Site principal ↗</a>
         </div>
       </div>
       <div className="realEstateFooterBottom">
-        <span>© {new Date().getFullYear()} Brother Studio Immobilier</span>
+        <span>© {new Date().getFullYear()} Immovalais</span>
         <span>Créer de la valeur pour les lieux de demain.</span>
       </div>
     </footer>

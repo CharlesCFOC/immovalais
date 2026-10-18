@@ -43,7 +43,7 @@ export function CampaignLandingPage({ locale, heroVideoSrc, analyticsEnabled = f
 
       <section className="campaignLandingValuationHero" aria-labelledby="landing-hero-title">
         <div className="campaignLandingValuationCopy">
-          <p className="campaignLandingEyebrow campaignLandingEyebrowDark">BrotherStudio · Immobilier</p>
+          <p className="campaignLandingEyebrow campaignLandingEyebrowDark">Immovalais · Immobilier</p>
           <h1 id="landing-hero-title" className={isFrench ? "campaignLandingHeroTitleTwoLines" : undefined}>
             {isFrench ? <><span>Estimation gratuite</span>{" "}<span>en Suisse romande</span></> : "Free valuation in French-speaking Switzerland"}
           </h1>
@@ -106,7 +106,7 @@ export function CampaignLandingPage({ locale, heroVideoSrc, analyticsEnabled = f
           <p>{isFrench ? "Choisissez directement un créneau pour discuter de votre bien et de son estimation. Vous recevrez la confirmation et le lien de l’appel vidéo." : "Choose a time to discuss your property and its valuation. You will receive a confirmation and a video call link."}</p>
           <a className="campaignLandingButton campaignLandingButtonLight" href={CALENDLY_MEETING_URL} target="_blank" rel="noopener noreferrer">{isFrench ? "Ouvrir l’agenda" : "Open the calendar"}<ArrowUpRight size={17} aria-hidden="true" /></a>
         </div>
-        <CalendlyEmbed title={isFrench ? "Rendez-vous BrotherStudio" : "BrotherStudio appointment"} url={CALENDLY_MEETING_URL} />
+        <CalendlyEmbed title={isFrench ? "Rendez-vous Immovalais" : "Immovalais appointment"} url={CALENDLY_MEETING_URL} />
       </section>
       <LandingFaq locale={locale} />
     </main>

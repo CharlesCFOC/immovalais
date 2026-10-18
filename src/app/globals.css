@@ -26821,7 +26821,7 @@ body:has(.dashboardPage),
   }
 }
 
-/* The Plantaz presentation owns its own footer; hide BrotherStudio's global footer on this page. */
+/* The Plantaz presentation owns its own footer; hide the global footer on this page. */
 body:has(.plantazWebsitePage) .siteHeader {
   display: none !important;
 }

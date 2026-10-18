@@ -18,8 +18,8 @@ export function RealEstateNavigation({ locale, active = "home" }: RealEstateNavi
     <header className="realEstateLocalHeader">
       <span className={theme.theme} hidden aria-hidden="true" />
       <div className="realEstateLocalHeaderInner">
-        <Link className="realEstateLocalLogo" href={homeHref} aria-label="Brother Studio Immobilier">
-          brother studio immobilier.
+        <Link className="realEstateLocalLogo" href={homeHref} aria-label="Immovalais">
+          Immovalais
         </Link>
         <nav className="realEstateLocalNav" aria-label="Navigation immobilier">
           <Link className={active === "home" ? "is-active" : ""} href={homeHref}>Home</Link>

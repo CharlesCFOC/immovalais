@@ -356,8 +356,8 @@ export function RealEstateProjectProfile({
                 <div className="realEstateProfileTrust">
                   <ShieldCheck aria-hidden="true" size={17} />{" "}
                   {isFrench
-                    ? "Réponse personnalisée par Brother Studio"
-                    : "Personal reply from Brother Studio"}
+                    ? "Réponse personnalisée par Immovalais"
+                    : "Personal reply from Immovalais"}
                 </div>
               </aside>
             ) : null}

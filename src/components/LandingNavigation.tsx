@@ -18,8 +18,8 @@ export function LandingNavigation({ locale }: { locale: Locale }) {
     <header className={styles.header}>
       <div className={styles.inner}>
         <div className={styles.brand}>
-          <Link className={styles.logo} href={`/${locale}/immobilier`} aria-label="Brother Studio Immobilier">
-            <span>brother studio</span>{" "}<span>immobilier.</span>
+          <Link className={styles.logo} href={`/${locale}/immobilier`} aria-label="Immovalais">
+            <span>Immovalais</span>
           </Link>
         </div>
         <nav className={styles.desktopNav} aria-label={isFrench ? "Navigation de la page" : "Page navigation"}>
