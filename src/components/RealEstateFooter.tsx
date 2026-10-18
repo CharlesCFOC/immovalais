@@ -30,8 +30,8 @@ export function RealEstateFooter({ locale }: { locale: Locale }) {
         </div>
         <div>
           <p className="realEstateFooterLabel">Contact</p>
-          <a href="mailto:info@brotherstudio.ca">{locale === "fr" ? "Nous écrire" : "Email us"}</a>
-          <a href="tel:+14376773212">+1 437 677 3212</a>
+          <a href="mailto:veronique.pavard@gmail.com">veronique.pavard@gmail.com</a>
+          <a href="tel:+41775201044">+41 77 520 10 44</a>
         </div>
         <div>
           <p className="realEstateFooterLabel">Immovalais</p>
