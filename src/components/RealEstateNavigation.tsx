@@ -25,7 +25,6 @@ export function RealEstateNavigation({ locale, active = "home" }: RealEstateNavi
           <Link className={active === "home" ? "is-active" : ""} href={homeHref}>Home</Link>
           <Link className={active === "listings" ? "is-active" : ""} href={listingsHref}>Nos biens immobiliers</Link>
           <Link className={active === "sell" ? "is-active" : ""} href={valuationHref}>{locale === "fr" ? "Vendre mon bien" : "Sell my property"}</Link>
-          <a className={`realEstateLocalNavCta${active === "studio" ? " is-active" : ""}`} href={withLocalePath(locale, "/immobilier/commercialisation")}>Commercialiser mon projet <span aria-hidden="true">↗</span></a>
           <a href="#site-footer">Contact</a>
         </nav>
       </div>
