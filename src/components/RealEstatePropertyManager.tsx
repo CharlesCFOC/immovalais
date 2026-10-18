@@ -1,9 +1,11 @@
 "use client";
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
+import { Grid2X2, List } from "lucide-react";
 import { useRouter } from "next/navigation";
 import type { Locale } from "@/lib/i18n";
-import type { PropertyRow } from "@/lib/real-estate/types";
+import { mediaUrl, type PropertyRow } from "@/lib/real-estate/types";
 import { estateRequest } from "./RealEstateAdminAccess";
 export default function RealEstatePropertyManager({
   locale,
@@ -18,7 +20,8 @@ export default function RealEstatePropertyManager({
     [error, setError] = useState(""),
     [search, setSearch] = useState(""),
     [tab, setTab] = useState("all"),
-    [title, setTitle] = useState("");
+    [title, setTitle] = useState(""),
+    [layout, setLayout] = useState<"list" | "grid">("list");
   const router = useRouter();
   useEffect(() => {
     let alive = true;
@@ -135,6 +138,17 @@ export default function RealEstatePropertyManager({
           </select>
         </label>
       </div>
+      <div className="reManagerViewToolbar">
+        <p>{visible.length} annonce{visible.length > 1 ? "s" : ""}</p>
+        <div className="reManagerLayoutSwitch" role="group" aria-label="Mode d’affichage des annonces">
+          <button type="button" aria-label="Affichage en liste" aria-pressed={layout === "list"} onClick={() => setLayout("list")}>
+            <List size={17} aria-hidden="true" /> Liste
+          </button>
+          <button type="button" aria-label="Affichage en grille" aria-pressed={layout === "grid"} onClick={() => setLayout("grid")}>
+            <Grid2X2 size={16} aria-hidden="true" /> Grille
+          </button>
+        </div>
+      </div>
       {error ? (
         <p className="reError" role="alert">
           {error}
@@ -143,52 +157,71 @@ export default function RealEstatePropertyManager({
       {loading ? (
         <p>Chargement des biens…</p>
       ) : (
-        <div className="reManagerRows">
+        <div className={`reManagerRows reManagerRows--${layout}`}>
           {visible.map((p) => (
             <article key={p.id} className="reManagerRow">
-              <div>
-                <span className="reBadge">
-                  {p.deleted_at
-                    ? "Corbeille"
-                    : p.visibility === "published"
-                      ? "Publié"
-                      : p.visibility === "hidden"
-                        ? "Masqué"
-                        : "Brouillon"}
-                </span>
-                <h3>{p.draft.title}</h3>
-                <p>
-                  {p.draft.location || "Localisation à compléter"} ·{" "}
-                  {new Date(p.updated_at).toLocaleDateString("fr-CH")}
-                </p>
+              <div className="reManagerRowImage">
+                <Image
+                  src={
+                    p.draft.images[0]
+                      ? mediaUrl(p.draft.images[0].id)
+                      : "/immobilier/placeholder.svg"
+                  }
+                  alt={p.draft.images[0]?.alt || p.draft.title || "Aperçu du bien"}
+                  fill
+                  unoptimized
+                  sizes={
+                    layout === "grid"
+                      ? "(max-width: 680px) 100vw, (max-width: 1000px) 50vw, 33vw"
+                      : "190px"
+                  }
+                />
               </div>
-              <div className="reActions">
-                {p.deleted_at ? (
-                  <button disabled={busy} onClick={() => action(p, "restore")}>
-                    Restaurer
-                  </button>
-                ) : (
-                  <>
-                    <Link
-                      className="rePrimary"
-                      href={`/${locale}/immobilier/${p.slug}?edit=1`}
-                    >
-                      Modifier la fiche ↗
-                    </Link>
-                    {p.visibility === "published" ? (
-                      <button disabled={busy} onClick={() => action(p, "hide")}>
-                        Masquer
-                      </button>
-                    ) : null}
-                    <button
-                      className="reDanger"
-                      disabled={busy}
-                      onClick={() => action(p, "trash")}
-                    >
-                      Supprimer
+              <div className="reManagerRowContent">
+                <div className="reManagerRowDetails">
+                  <span className="reBadge">
+                    {p.deleted_at
+                      ? "Corbeille"
+                      : p.visibility === "published"
+                        ? "Publié"
+                        : p.visibility === "hidden"
+                          ? "Masqué"
+                          : "Brouillon"}
+                  </span>
+                  <h3>{p.draft.title}</h3>
+                  <p>
+                    {p.draft.location || "Localisation à compléter"} ·{" "}
+                    {new Date(p.updated_at).toLocaleDateString("fr-CH")}
+                  </p>
+                </div>
+                <div className="reActions">
+                  {p.deleted_at ? (
+                    <button disabled={busy} onClick={() => action(p, "restore")}>
+                      Restaurer
                     </button>
-                  </>
-                )}
+                  ) : (
+                    <>
+                      <Link
+                        className="rePrimary"
+                        href={`/${locale}/immobilier/${p.slug}?edit=1`}
+                      >
+                        Modifier la fiche ↗
+                      </Link>
+                      {p.visibility === "published" ? (
+                        <button disabled={busy} onClick={() => action(p, "hide")}>
+                          Masquer
+                        </button>
+                      ) : null}
+                      <button
+                        className="reDanger"
+                        disabled={busy}
+                        onClick={() => action(p, "trash")}
+                      >
+                        Supprimer
+                      </button>
+                    </>
+                  )}
+                </div>
               </div>
             </article>
           ))}
