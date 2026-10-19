@@ -13,8 +13,8 @@ export function RealEstateFooter({ locale }: { locale: Locale }) {
   return (
     <footer id="site-footer" className="realEstateFooter">
       <div className="realEstateFooterTop">
-        <Link className="realEstateFooterLogo" href={homeHref} aria-label="Immovalais">
-          Immovalais
+        <Link className="realEstateFooterLogo" href={homeHref} aria-label="Immobilier valaisan">
+          Immobilier valaisan
         </Link>
         <p>Des lieux à vivre. Des projets à vendre.</p>
       </div>
@@ -34,14 +34,14 @@ export function RealEstateFooter({ locale }: { locale: Locale }) {
           <a href="tel:+41775201044">+41 77 520 10 44</a>
         </div>
         <div>
-          <p className="realEstateFooterLabel">Immovalais</p>
+          <p className="realEstateFooterLabel">Immobilier valaisan</p>
           <p>Suisse / Canada</p>
           <a href="https://brotherstudio.ch" target="_blank" rel="noreferrer">Site principal ↗</a>
           <Link href={adminHref}>Admin</Link>
         </div>
       </div>
       <div className="realEstateFooterBottom">
-        <span>© {new Date().getFullYear()} Immovalais</span>
+        <span>© {new Date().getFullYear()} Immobilier valaisan</span>
         <span>Créer de la valeur pour les lieux de demain.</span>
       </div>
     </footer>

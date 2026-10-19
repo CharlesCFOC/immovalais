@@ -15,8 +15,8 @@ export async function generateMetadata({ params }: RealEstatePageProps): Promise
   const title = locale === "fr" ? "Immobilier en Suisse romande" : "Real estate in French-speaking Switzerland";
   const description =
     locale === "fr"
-      ? "Découvrez des biens immobiliers en Suisse romande et présentez votre projet avec Immovalais, de l’idée à la vente."
-      : "Discover properties in French-speaking Switzerland and market your development with Immovalais, from idea to sale.";
+      ? "Découvrez des biens immobiliers en Suisse romande et présentez votre projet avec Immobilier valaisan, de l’idée à la vente."
+      : "Discover properties in French-speaking Switzerland and market your development with Immobilier valaisan, from idea to sale.";
 
   return {
     title,
@@ -49,7 +49,7 @@ export default async function RealEstatePage({ params }: RealEstatePageProps) {
     "@graph": [
       {
         "@type": "RealEstateAgent",
-        name: "Immovalais",
+        name: "Immobilier valaisan",
         url: pageUrl,
         image: toAbsoluteUrl("/immobilier/hero-lac-alpes.webp"),
         areaServed: { "@type": "Place", name: "Suisse romande" },
@@ -65,7 +65,7 @@ export default async function RealEstatePage({ params }: RealEstatePageProps) {
       },
       {
         "@type": "WebSite",
-        name: "Immovalais",
+        name: "Immobilier valaisan",
         url: pageUrl,
         inLanguage: locale,
       },

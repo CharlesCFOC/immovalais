@@ -356,8 +356,8 @@ export function RealEstateProjectProfile({
                 <div className="realEstateProfileTrust">
                   <ShieldCheck aria-hidden="true" size={17} />{" "}
                   {isFrench
-                    ? "Réponse personnalisée par Immovalais"
-                    : "Personal reply from Immovalais"}
+                    ? "Réponse personnalisée par Immobilier valaisan"
+                    : "Personal reply from Immobilier valaisan"}
                 </div>
               </aside>
             ) : null}

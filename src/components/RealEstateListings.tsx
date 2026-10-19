@@ -139,7 +139,7 @@ export function RealEstateListings({
 
             <header className="realEstateHero">
               <div>
-                <p className="realEstateEyebrow">Immovalais — Immobilier</p>
+                <p className="realEstateEyebrow">Immobilier valaisan</p>
                 <h1 id="real-estate-title">
                   {isFrench ? "Des lieux à vivre." : "Places to live."}
                 </h1>
